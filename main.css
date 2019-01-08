@@ -1,22 +1,30 @@
 @font-face{font-family:"IonIcons";src:url("//code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.eot?v=2.0.1");src:url("//code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.eot?v=2.0.1#iefix") format("embedded-opentype"),url("//code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.ttf?v=2.0.1") format("truetype"),url("//code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.woff?v=2.0.1") format("woff"),url("//code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.svg?v=2.0.1#Ionicons") format("svg");font-weight:normal;font-style:normal}
-h2 {
+/* h2 {
 border-bottom: solid 3px dodgerblue;
 position: relative;
+} */
+h2 {
+  padding: 0.25em 0.5em;/*上下 左右の余白*/
+  color: #494949;/*文字色*/
+  background: transparent;/*背景透明に*/
+  /* border-left: solid 5px #7db4e6;/*左線*/
+  border-left: solid 5px #ff69b4;/*左線*/
 }
-
-h2:after {
-position: absolute;
-content: " ";
-display: block;
-border-bottom: solid 3px hotpink;
-bottom: -3px;
-width: 30%;
+h3 {
+  padding: 0.25em 1.0em;/*上下 左右の余白*/
+  color: #494949;/*文字色*/
+  background: transparent;/*背景透明に*/
+  border-left: solid 5px #7db4e6;/*左線
+  /* border-left: solid 5px #ff69b4;/*左線*/ */
 }
-
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #494949;/*文字色*/
   position: relative;
-  font-size: 12px; 
+  font-size: 14px;
+}
+p {
+  padding: 0.25em 1.5em;/*上下 左右の余白*/
 }
 .rank_ctr {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -57,7 +65,7 @@ select:-moz-focusring {
 a{
   text-decoration: none;
   color: gray;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
 }
 a:hover{

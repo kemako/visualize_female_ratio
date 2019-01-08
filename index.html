@@ -113,7 +113,7 @@
     </div>
   </td>
 
-  <td id="rank" height="700" align="top"></td>
+  <td id="rank" height="500" align="top"></td>
 
   <td input type="text" width="500"  id="detail-container">
     <a  onclick="hideDetail(this);" class = "close-button" id="close-button-detail_0">
@@ -139,8 +139,8 @@
       <td id='mas-graph'></td>
       <td id='pdi-graph'></td>
       <td id='ter-graph'></td>
-    </tr>
-    <tr>
+    <!-- </tr> -->
+    <!-- <tr> -->
       <td id='int-graph'></td>
       <td id='wag-graph'></td>
       <td id='pub-graph'></td>
@@ -165,11 +165,72 @@
 <h2>How to Use</h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-6inVVtigKA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+<h2>Background</h2>
+<p>
+学部3年の電子情報工学科の女子は4人、電気電子工学科になると女子は1人なので、電気系の女子率はわずか3.70%しかない。<br>
+この状況は日本だけなのかそれとも世界ではもっと工学系の女子率は高いのか、そしてさらにどうすれば女子率が上がるのか。<br><br>
+工学系の女子率を増加させるために何をすればいいのかを知るために、<br>私たちのチームでは「世界の各国の大学の学部ごとの女子率と他のデータとの相関を可視化する」
+アプリケーションを作成した。
+</p>
+
+<h2>Data</h2>
+<p>
+  <ul>
+    <li>世界の各国の大学の学部ごとの女子率<br>
+      <a href="http://data.uis.unesco.org/index.aspx?queryid=118&export">UIS dataのWoman in Scienceデータセット(csv)</a></li>
+    <li>国別のホフステッド指数(米IBMがアンケート調査を行ったその国の文化と国民性を数値 で表すことができる指数)
+      <ul>
+        <li><a href="https://data.world/adamhelsinger/geerthofstedeculturaldimension">Power distance index (PDI) 上下関係の強さ(2015年)(csv)</a></li>
+        <li><a href="https://data.world/adamhelsinger/geerthofstedeculturaldimension">Masculinity (MAS) 男らしさを求める強さ(2015年)(csv)</a></li>
+      </ul>
+    </li>
+    <li><a href="http://data.uis.unesco.org/index.aspx?queryid=118&export">国別の大学教師の女子率(csv)</a></li>
+    <li><a href="https://www.itu.int/en/ITU-D/Statistics/Pages/stat/default.aspx">国別のインターネットの使用率</a></li>
+    <li><a href="https://data.oecd.org/earnwage/gender-wage-gap.html">国別の男女間の賃金格差 OECD dataからのGender wage gap(2013-2017年)(csv)</a></li>
+    <li><a href="https://stats.oecd.org/index.aspx?queryid=79390">国別の政府が教育費にあてている割合<br>OECDのデータセットからのEducational finance indicators:
+  Public expenditure on education as percentage of total government expenditure in year 2015 (excel)</a></li>
+  </ul>
+</p>
+
+<h2>Analysis</h2>
+<p>
+python jupyter notebookを使ってexcelデータセットをcsvに変換して保存した後、<br>
+csvデータセットをデータフレームに読み込んで、データが欠損しているところを削除したり、<br>
+2015年のデータだけを絞って新しいcsvデータセットを出力したり<br>
+(男女間の賃金格差のデータはその国の最新年のデータを使った)、値を昇順整列してランキングを作ったりした。<br>
+処理したデータはjavascriptのd3.csvで読み込んで、使いやすいように連想配列(ハッシュ)を使って国名をキーとして、<br>
+値はそれぞれのデータの値とランキングになるようにデータを処理した。
+</p>
+
+<h2>Consideration</h2>
+<h3>世界の女子率について</h3>
+<p>
+今回4種類の女子率を可視化したが、中でもEngineeringは特に女子率が低いということがわかった<br>
+また女子率が高い国としてはスウェーデンなどの北欧の国々や、オマーンやジンバブエなどの国家予算に占める教育費の割合が高い国々、<br>
+さらにはセントクリストファーネイビスやアンドラなどのタックスヘイブンとなっている国々などがあった。
+</p>
+<h3>女子率と6種類のデータとの相関</h3>
+<p>
+グラフで見てみると相関が見られたものはほとんどなかった。<br>
+最も相関があるのは理系の女子率と大学教師の女子率であったが、これに関しては理系の女子率が小さいから<br>
+そのまま教師になる人数が少なく女性教師が少ないのか、女性教師が少ないから理系を目指す女子率が小さいのか、<br>
+どちらが原因でどちらが結果となっているかを判断するのが難しいものである。<br>
+ただし、相関が見られなかったことで、私たちがイメージしていた女子率の低い原因と女子率には実は因果関係がないという重要な発見ができた。
+</p>
+<h3>結果を通して考えたこと</h3>
+<p>
+女子率の高い国を調べた結果を上に述べたが、国ごとに女子率が高い原因が異なることがわかる。<br>
+特にタックスヘイブンで外国人が多い国に関しては、相関のグラフを作る際に例外として扱う必要があるかもしれない。<br>
+また、今回は世界の女子率と他のデータの相関を見たが、 上で述べたように国ごとに異なるだけでなく、<br>
+地域ごとにある程度傾向が似ているので地域ごとの女子率との相関、地域内での女子率との相関など、<br>
+工夫してみるともう少しはっきりとした相関が見られる可能性があるので、今後はこのように地域ごとや地域内での相関も可視化できるようにしたい
+</p>
+
+<div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+</body>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 <script src="https:////cdnjs.cloudflare.com/ajax/libs/topojson/1.1.0/topojson.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="script/main.js"></script>
-</body>

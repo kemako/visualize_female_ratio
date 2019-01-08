@@ -372,8 +372,8 @@ d3.csv("data/world_coordinate.csv", function(err, coordinate_data) {
                       .attr("class", "graticule")
                       .attr("d", path);
 
-                      var widthGraph = 250;
-                      var heightGraph = 250;
+                      var widthGraph = 150;
+                      var heightGraph = 150;
                       var offsetGraph = 40;
 
                       var MasculinityScale = d3.scale.linear().domain([0, 100])
@@ -775,7 +775,7 @@ d3.csv("data/world_coordinate.csv", function(err, coordinate_data) {
                                 })
                                 .attr("class", "rank_ctr")
                                 .attr("y", function (d, i) {
-                                    return (i * 35) + 20;
+                                    return (i * 25) + 20;
                                 })
                                 .attr("x", 10)
                                 .attr("fill", "black")
@@ -1631,9 +1631,9 @@ d3.csv("data/world_coordinate.csv", function(err, coordinate_data) {
                      terGraph.append("text")
                         .attr("class", "TeacherLabel")
                         .attr("text-anchor", "end")
-                        .attr("x", widthGraph + 78)
+                        .attr("x", widthGraph + 18)
                         .attr("y", heightGraph + 5)
-                        .text("Female Ratio of Teacher(in tertiary education)");
+                        .text("Teacher");
 
                      //y軸の説明
                      terGraph.append("text")
@@ -1744,7 +1744,7 @@ d3.csv("data/world_coordinate.csv", function(err, coordinate_data) {
                         .attr("text-anchor", "end")
                         .attr("x", widthGraph)
                         .attr("y", heightGraph + 5)
-                        .text("Using Internet (Female)(%)");
+                        .text("Internet(%)");
 
                      //y軸の説明
                      intGraph.append("text")
@@ -1855,7 +1855,7 @@ d3.csv("data/world_coordinate.csv", function(err, coordinate_data) {
                         .attr("text-anchor", "end")
                         .attr("x", widthGraph)
                         .attr("y", heightGraph + 5)
-                        .text("Gender wage gap(%)");
+                        .text("Wage gap(%)");
 
                      //y軸の説明
                      wagGraph.append("text")
@@ -1967,7 +1967,7 @@ d3.csv("data/world_coordinate.csv", function(err, coordinate_data) {
                         .attr("text-anchor", "end")
                         .attr("x", widthGraph+35)
                         .attr("y", heightGraph + 5)
-                        .text("Public spending on education(%)");
+                        .text("Public expenditure(%)");
 
                      //y軸の説明
                      pubGraph.append("text")
